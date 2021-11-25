@@ -1,0 +1,15 @@
+<header>
+  <div id="brand"><span>Can you type fast?</span></div>
+</header>
+<div class="container">
+  <div *ngIf="isTestFinished">
+    <h1>Words typed: {{ counter }}</h1>
+    <div (click)="startTimer()" class="btn btn-dark align-center">Restart</div>
+  </div>
+  <div *ngIf="!isTimerOn && !isTestFinished" (click)="startTimer()" class="btn btn-dark">Start typing</div>
+  <div *ngIf="isTimerOn && !isTestFinished" class="counter">
+      <h1 id="timer"></h1>
+      <h2 id="word">{{ word }}</h2>
+      <div id="word-input"><input id="input" (keyup)="verifyTypedWord()" type="text"></div>
+  </div>
+</div>
